@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=3.16
 FROM alpine:${ALPINE_VERSION}
-LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.22 & PHP 8.1 based on Alpine Linux."
+LABEL Maintainer="Samuel Banks"
+LABEL Description="Lightweight container with Nginx 1.22 & PHP 8.1 based on Alpine Linux with performance modifications."
 # Setup document root
 WORKDIR /var/www/html
 
@@ -24,6 +24,7 @@ RUN apk add --no-cache \
   php81-session \
   php81-xml \
   php81-xmlreader \
+  php81-bcmath \
   supervisor
 
 # Create symlink so programs depending on `php` still function
